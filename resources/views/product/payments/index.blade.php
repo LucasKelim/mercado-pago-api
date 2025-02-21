@@ -2,13 +2,8 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight my-2">
-                {{ __('Products') }}
+                {{ __('Payments') }}
             </h2>
-            <a href="{{ route('products.create') }}">
-                <x-primary-button>
-                    Create
-                </x-primary-button>
-            </a>
         </div>
     </x-slot>
 
@@ -33,7 +28,7 @@
                             </div>
                         </div>
                     @empty
-                        <h2>Any product found</h2>
+                        <h2>Any payment found</h2>
                     @endforelse
                 </div>
             </div>

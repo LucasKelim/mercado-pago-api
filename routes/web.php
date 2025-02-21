@@ -13,9 +13,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('product', ProductController::class);
-    Route::get('buy/{product}', [ProductController::class, 'buy'])->name('product.buy');
+    Route::resource('products', ProductController::class);
+    Route::get('products/buy/{product}', [ProductController::class, 'buy'])->name('products.buy');
+    Route::get('payments', [ProductController::class, 'payments'])->name('payments');
 });
+
+Route::post('webhook', [ProductController::class, 'webhook']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
